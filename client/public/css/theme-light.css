@@ -1,0 +1,117 @@
+/* LIGHT MODE COLORS */
+
+:root {
+  --primary-bg: #EAEBF3;
+  --secondary-bg:#DDDFEC;
+  --primary-btn-color: #6667AB;
+  --primary-text-color:#2C2F41;
+}
+
+body {
+  background: var(--primary-bg);
+}
+
+/*Custom Buttons*/
+.btn-custom{
+  background:  var(--primary-btn-color) !important; 
+  box-shadow:  1px 1px 10px  var(--primary-btn-color),-1px -1px 10px  var(--primary-btn-color) !important;
+}
+
+/*-----------------------------*/
+
+#sidebar, #topbar{
+  background: var(--secondary-bg);
+  box-shadow:  5px 5px 38px #abacb1,-5px -5px 38px #ffffff;
+  color:var(--primary-text-color); 
+}
+
+/* Top Bar Heading */
+#topbar h6{
+  color:var(--primary-text-color)
+}
+
+
+/* Side Bar & Top Bar Items */
+#sidebar li, #topbar li{
+  color:var(--primary-text-color);
+}
+
+/* Side Bar & Top Bar Active Item */
+#sidebar .active > li,  #topbar .active > li{
+  background:  var(--primary-btn-color) !important;
+  box-shadow:  1px 1px 10px  var(--primary-btn-color),-1px -1px 10px  var(--primary-btn-color) !important;
+  color:white !important;
+}
+
+/*-----------------------------*/
+
+/* Data Table */
+#table{
+  background: var(--primary-bg);
+  box-shadow:  16px 16px 25px #c7c7c7, -16px -16px 25px #ffffff;  
+  color:black; 
+}
+
+/* Data Table Search*/
+#table input{
+  background: var(--primary-bg);
+  box-shadow:  2px 2px 5px #c7c7c7, -2px -2px 5px #ffffff;  
+  color:black; 
+  outline: none;
+  border:none;
+  padding: 10px;
+}
+
+/* Data Table Search On Focus*/
+#table input:focus{
+  z-index:0;
+}
+
+/*-----------------------------*/
+
+/* Modal Background */
+.modal-backdrop{
+  background: rgba(255, 255, 255,1) !important;
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+}
+
+/* Modal Container*/
+.modal-content{
+  background: rgba(234, 235, 243,0.2);
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+  border-radius: 50px;
+  color:var(--primary-text-color);
+  border:none;
+  padding: 25px;
+}
+
+/* Div in the Modals*/
+.modal-content div{
+  border:none;
+}
+
+/* Close Button in Modal*/
+.modal-content .btn-close{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/*-----------------------------*/
+
+/* Input Fields Focused */
+.Mui-focused fieldset, .Mui-focused.MuiInputLabel-root{
+  border-color: var(--primary-btn-color) !important;
+  color: var(--primary-btn-color) !important;
+}
+
+/* Input Fields Placeholder */
+.MuiInputLabel-root{
+  
+}
+
+/* Input Fields */
+.MuiOutlinedInput-root fieldset, .MuiOutlinedInput-root{
+  
+}

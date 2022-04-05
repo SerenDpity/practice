@@ -1,0 +1,168 @@
+/* DARK MODE COLORS */
+
+:root {
+  --primary-bg: #1f1f1f;
+  --secondary-bg:#1f1f1f;
+  --primary-btn-color: #6667AB;
+  --primary-text-color:#fff;
+}
+
+body {
+  background: var(--primary-bg);
+}
+
+/*Custom Buttons*/
+.btn-custom{
+  background:  var(--primary-btn-color) !important; 
+  box-shadow:  1px 1px 10px  var(--primary-btn-color),-1px -1px 10px  var(--primary-btn-color) !important;
+}
+
+/*-----------------------------*/
+
+#sidebar, #topbar{
+  background: var(--secondary-bg);
+  box-shadow: inset 12px 12px 14px #1b1b1b,inset -12px -12px 14px #232323;
+  color:var(--primary-text-color); 
+}
+
+/* Top Bar Heading */
+#topbar h6{
+  color:var(--primary-text-color)
+}
+
+/* Top Bar Hamburger Icon*/
+#topbar .navbar-toggler span{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/*Top Bar Hamburger Icon Border*/
+#topbar .navbar-toggler {
+  border-color: var(--primary-text-color);
+}
+
+/* Top Bar Hamburger Icon Glow */
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline-color:none;
+    box-shadow: none;;
+}
+
+/* Side Bar & Top Bar Items */
+#sidebar li, #topbar li{
+  color:var(--primary-text-color);
+}
+
+/* Side Bar & Top Bar Logo */
+#sidebar-logo, #topbar-logo{
+  filter:brightness(10);
+}
+
+/* Side Bar & Top Bar Active Item */
+#sidebar .active > li,  #topbar .active > li{
+  background:  var(--primary-btn-color) !important;
+  box-shadow:  1px 1px 10px  var(--primary-btn-color),-1px -1px 10px  var(--primary-btn-color) !important;
+  color:white !important;
+}
+
+/*-----------------------------*/
+
+/* Data Table */
+#table{
+  background: var(--primary-bg);
+  box-shadow: inset 12px 12px 14px #1b1b1b,inset -12px -12px 14px #232323; 
+  color:var(--primary-text-color); 
+}
+
+/* Data Table Search*/
+#table input{
+  background: var(--primary-bg);
+  box-shadow: inset 12px 12px 14px #1b1b1b,inset -12px -12px 14px #232323;
+  color:var(--primary-text-color);
+  outline: none;
+  border:none;
+}
+
+/* Data Table Texts */
+#table th, #table tr, #table td, #table p, #table div, #table svg{
+  color: var(--primary-text-color);
+}
+
+/* Data Table Search On Focus*/
+#table input:focus{
+  z-index:0;
+}
+
+/* Data Table Sort Hover Design*/
+#table .MuiTableSortLabel-root:hover{
+  color:white;
+}
+
+/* Data Table Sort Active Design*/
+#table .MuiTableSortLabel-root.Mui-active{
+  color:white;
+}
+
+/*-----------------------------*/
+
+/* Modal Background */
+.modal-backdrop{
+  background: rgba( 0, 0, 0, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+}
+
+/* Modal Container*/
+.modal-content{
+  background: rgba( 0, 0, 0, 0.2 );
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+  border-radius: 50px;
+  color:var(--primary-text-color);
+  border:none;
+  padding: 25px;
+}
+
+/* Div in the Modals*/
+.modal-content div{
+  border:none;
+}
+
+/* Close Button in Modal*/
+.modal-content .btn-close{
+  background:transparent url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23FFF%27%3e%3cpath d=%27M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z%27/%3e%3c/svg%3e") center/1em auto no-repeat;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/*-----------------------------*/
+
+/* Input Fields Focused */
+.Mui-focused fieldset, .Mui-focused.MuiInputLabel-root{
+  border-color: var(--primary-btn-color) !important;
+  color: var(--primary-btn-color) !important;
+}
+
+/* Input Fields Placeholder */
+.MuiInputLabel-root{
+  color:var(--primary-text-color) !important;
+}
+
+/* Input Fields */
+.MuiOutlinedInput-root fieldset, .MuiOutlinedInput-root{
+  border-color: var(--primary-text-color);
+  color:var(--primary-text-color) !important;
+}
+
+/* Input Fields Hover */
+.MuiInputBase-root:hover fieldset{
+  border-color: var(--primary-btn-color) !important;
+}
+
+
+
+
+
+
+

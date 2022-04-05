@@ -1,0 +1,132 @@
+/* DO NOT CHANGE COLORS HERE */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+p,h1,h2,h3,h4,h5,h6,b,input,.MuiTypography-root {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+p{
+  margin:0;
+}
+
+#main-container{
+  padding:0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
+}
+
+/* Prevent Autofill BG Color */
+input:-webkit-autofill,  
+input:-webkit-autofill:hover,  
+input:-webkit-autofill:focus,  
+input:-webkit-autofill:active  
+{
+   -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+   -webkit-transition-delay: 9999s;
+   transition: color 9999s ease-out, background-color 9999s ease-out;
+   transition-delay: 9999s;
+}
+/*-----------------------------*/
+
+/* Top Bar */
+#topbar{
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*-----------------------------*/
+
+/*Side Bar*/
+#sidebar{
+  border-radius: 20px;
+}
+
+/* Side Bar Header */
+#sidebar .gAMYCL{
+  
+}
+
+/* Side Bar Header Brand*/
+#sidebar .gAMYCL .head-div{
+    justify-content: center !important;
+}
+
+/* Side Bar Items */
+#sidebar li{
+    margin-right: 0 !important;
+}
+
+/* Side Bar Active Item */
+#sidebar .active > li{
+    border-radius: 21px 0 0 21px;  
+    font-weight: bold;
+    transition: 0.25s !important;
+}
+
+/* Top Bar Active Item */
+#topbar .active > li{
+  border-radius: 21px;  
+  font-weight: bold;
+  transition: 0.25s !important;
+}
+
+/*-----------------------------*/
+
+/* Data Table */
+#table{
+  border-radius: 20px;
+  padding: 25px;
+}
+
+#table input{
+  padding: 10px;
+}
+
+/*-----------------------------*/
+
+
+/*Switch Track Ball*/
+.MuiSwitch-switchBase.Mui-checked{
+    color:#2C2F41 !important;
+}
+
+/*Switch Background*/
+.MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track{
+    background:#5657b9 !important;
+}
+
+/*-----------------------------*/
+.MuiOutlinedInput-root fieldset, .MuiOutlinedInput-root{
+  border-radius: 50px;
+}
+
+
+
+
+
+/*--------------------------*/
+
+@media (min-width: 576px) {
+
+  #main-content{
+    margin-left:290px;
+  }
+
+}
+
+@media (max-width: 765px){
+  #main-content{
+    margin-left:0;
+  }
+}
