@@ -130,3 +130,13 @@ input:-webkit-autofill:active
     margin-left:0;
   }
 }
+
+.div-custom{
+  border-radius: 30px;
+  padding: 50px;
+}
+
+.css-1gsv261{
+  border-bottom: none !important;
+}
+

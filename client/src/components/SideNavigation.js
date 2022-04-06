@@ -29,7 +29,7 @@ const SideNavigation = () => {
 
   return (
     <div>
-      <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial',padding:"15px 15px",position:"absolute",zIndex:1}} className="animate__animated animate__fadeInLeft d-none d-md-block">
+      <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial',padding:"15px 15px",position:"fixed",zIndex:1}} className="animate__animated animate__fadeIn d-none d-md-block">
         <link rel="stylesheet" href={darkMode == 'true'?"css/theme-dark.css":"css/theme-light.css"}/>
         <CDBSidebar breakpoint="0" id="sidebar" textColor="#fff" backgroundColor="#fff">
           <CDBSidebarHeader style={{fontFamily:"Montserrat"}}>

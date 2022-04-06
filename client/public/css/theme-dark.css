@@ -11,6 +11,10 @@ body {
   background: var(--primary-bg);
 }
 
+p,h1,h2,h3,h4,h5,h6{
+  color:var(--primary-text-color);
+}
+
 /*Custom Buttons*/
 .btn-custom{
   background:  var(--primary-btn-color) !important; 
@@ -149,6 +153,14 @@ body {
   color:var(--primary-text-color) !important;
 }
 
+.Mui-selected{
+  color:var(--primary-btn-color) !important;
+}
+
+.css-1aquho2-MuiTabs-indicator{
+  background:var(--primary-btn-color) !important;
+}
+
 /* Input Fields */
 .MuiOutlinedInput-root fieldset, .MuiOutlinedInput-root{
   border-color: var(--primary-text-color);
@@ -160,7 +172,11 @@ body {
   border-color: var(--primary-btn-color) !important;
 }
 
-
+.div-custom{
+  background: var(--primary-bg);
+  box-shadow: inset 12px 12px 14px #1b1b1b,inset -12px -12px 14px #232323; 
+  color:var(--primary-text-color);
+}
 
 
 
