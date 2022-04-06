@@ -14,8 +14,8 @@ function App() {
 
   var content = useRef()
 
-  //var [user,setUser] = useState(localStorage.getItem("user"));
-  var user = false;
+  var [user,setUser] = useState(localStorage.getItem("user"));
+
   
   if(user){
 

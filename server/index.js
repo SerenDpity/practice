@@ -18,10 +18,12 @@ app.use(cors({credentials: true, origin: true}));
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.get('/faculty/login',(req,res)=>{
+app.post('/faculty/login',(req,res)=>{
 
     const EmailAddress = req.body.EmailAddress;
     const Password = req.body.Password;
+
+    console.log(req.body)
 
     const sqlSelect = "SELECT EmployeeNumber,FirstName,MiddleInitial,LastName,Birthdate,Age,Sex,EmailAddress,ProfileImageURL FROM tbl_faculty WHERE EmailAddress=? AND BINARY Password=?";
 
