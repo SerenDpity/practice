@@ -15,6 +15,8 @@ import {
   Avatar,
 } from "@mui/material";
 
+import {makeStyles} from '@mui/styles'
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -49,6 +51,9 @@ function a11yProps(index) {
 }
 
 function Profile() {
+
+  const classes = useTabStyles();
+
   var [user,setUser] = useState(JSON.parse(localStorage.getItem('user')));
   console.log(user)
   const [value, setValue] = React.useState(0);
@@ -83,8 +88,8 @@ function Profile() {
             <Row>
               <Col>
                 <Avatar
-                  alt="Carmela Isabelle"
-                  src="/static/images/avatar/1.jpg"
+                  alt={user.FirstName}
+                  src={user.ProfileURL}
                   sx={{ width: 200, height: 200 }}
                   style={{ border: "solid 10px #EAEBF3", float: "left" }}
                 />
@@ -94,7 +99,7 @@ function Profile() {
                       variant="h5"
                       style={{ fontWeight: "800" }}
                     >{user.FirstName + " " + user.LastName}</Typography>
-                    <Typography>Student Assistant</Typography>
+                    <Typography>{user.EmailAddress}</Typography>
                   </Col>
                 </Row>
               </Col>
@@ -102,13 +107,16 @@ function Profile() {
           </Col>
         </Row>
 
-        <Row>
+        <Row className="box-custom">
           <Col>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
               <Tabs
+                classes={{ root: classes.root, scroller: classes.scroller }}
                 value={value}
                 onChange={handleChange}
-                aria-label="basic tabs example"
+                centered
+                variant="scrollable"
+                scrollButtons="auto"
               >
                 <Tab label="Personal Information" {...a11yProps(0)} />
                 <Tab label="Educational Background" {...a11yProps(1)} />
@@ -143,6 +151,7 @@ function Profile() {
                 </Col>
               </Row>
 
+
               <Row>
                 <Col lg={3}>
                   <Typography variant="h6">High School</Typography>
@@ -170,5 +179,14 @@ function Profile() {
     </Row>
   );
 }
+
+const useTabStyles = makeStyles({
+  root: {
+    justifyContent: "center"
+  },
+  scroller: {
+    flexGrow: "0"
+  }
+});
 
 export default Profile;

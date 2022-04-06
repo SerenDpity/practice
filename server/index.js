@@ -55,7 +55,7 @@ app.post('/faculty/register',(req,res)=>{
     const Sex = req.body.Sex;
     const EmailAddress = req.body.EmailAddress;
     const Password = req.body.Password;
-
+    
     const sqlInsert = "INSERT INTO tbl_faculty (FirstName,MiddleInitial,LastName,Birthdate,Age,Sex,EmailAddress,Password) VALUES(?,?,?,?,?,?,?,?)";
 
     db.query(sqlInsert,[FirstName,MiddleInitial,LastName,Birthdate,Age,Sex,EmailAddress,Password],(err,result)=>{
