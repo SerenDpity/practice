@@ -1,5 +1,5 @@
 import {Container,Row,Col} from 'react-bootstrap'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route,Navigate} from 'react-router-dom'
 
 import DataTable from './components/DataTable'
 import SideNavigation from './components/SideNavigation'
@@ -14,8 +14,7 @@ function App() {
 
   var content = useRef()
 
-  //var [user,setUser] = useState(localStorage.getItem("user"));
-  var user = true
+  var [user,setUser] = useState(localStorage.getItem("user"));
   
   if(user){
 
@@ -44,7 +43,7 @@ function App() {
             <Col>
               <Routes>
                 <Route path="/" element={<Login/>}/>
-                <Route path="/*" element={<NotFound/>}/>
+                <Route path="/*" element={<Navigate to="/"/>}/>
               </Routes>
             </Col>
           </Row>

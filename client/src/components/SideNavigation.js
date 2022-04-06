@@ -9,7 +9,7 @@ import {
 
 import {Row,Col} from 'react-bootstrap'
 
-import {Switch} from '@mui/material'
+import {Switch,Button} from '@mui/material'
 
 import { NavLink } from 'react-router-dom';
 
@@ -59,6 +59,9 @@ const SideNavigation = () => {
               <NavLink to="/profile">
                 <CDBSidebarMenuItem icon="users">About Us</CDBSidebarMenuItem>
               </NavLink>
+              <Button onClick={()=>{localStorage.clear();window.location.reload()}}>
+                <CDBSidebarMenuItem icon="users">Log Out</CDBSidebarMenuItem>
+              </Button>
 
             </CDBSidebarMenu>
           </CDBSidebarContent>

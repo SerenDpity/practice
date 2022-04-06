@@ -128,13 +128,56 @@ function Profile() {
 
             <TabPanel value={value} index={1}>
               <Row>
-                <Col>
-                  <Typography variant="h5">Educational Background</Typography>
+                <Col lg={2}>
+                  <Typography>Educational Background</Typography>
                 </Col>
 
-                <Col>
-                    
+                <Col lg={5}>
+                  <Row className="box-custom">
+                    <Col>
+                      <Typography variant="h5">STI College Malolos</Typography>
+                      <Typography>Senior Highschool</Typography>    
+                      <Typography>Humanities and Social Science</Typography>   
+                      <Typography>2018-2020</Typography>   
+                    </Col>
+                  </Row>  
+
+
+                  <Row className="box-custom">
+                    <Col>
+                      <Typography variant="h5">Bulacan State University</Typography>
+                      <Typography>College</Typography>    
+                      <Typography>Information and Communications Technology</Typography>   
+                      <Typography>2020-Present</Typography>   
+                    </Col>
+                  </Row>  
                 </Col>
+
+                <Col lg={5}>
+                  <Row className="box-custom">
+                    <Col>
+                      <Typography variant="h5">STI College Malolos</Typography>
+                      <Typography>Senior Highschool</Typography>    
+                      <Typography>Humanities and Social Science</Typography>   
+                      <Typography>2018-2020</Typography>   
+                    </Col>
+                  </Row>  
+
+
+                  <Row className="box-custom">
+                    <Col>
+                      <Typography variant="h5">Bulacan State University</Typography>
+                      <Typography>College</Typography>    
+                      <Typography>Information and Communications Technology</Typography>   
+                      <Typography>2020-Present</Typography>   
+                    </Col>
+                  </Row>  
+                </Col>
+
+
+
+
+
               </Row>
             </TabPanel>
           </Col>

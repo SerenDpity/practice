@@ -136,6 +136,12 @@ input:-webkit-autofill:active
   padding: 50px;
 }
 
+.box-custom{
+  border-radius: 30px;
+  padding: 25px;
+  margin: 20px;
+}
+
 .css-1gsv261{
   border-bottom: none !important;
 }

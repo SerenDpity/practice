@@ -34,8 +34,10 @@ app.post('/faculty/login',(req,res)=>{
             if(result[0]){
                 res.send(result[0])
             }else{
-                res.status(404);
-                res.send("Invalid Credentials")
+                res.send({
+                    message:"Invalid Credentials.",
+                    error:1
+                });
             }
         }
 

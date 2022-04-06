@@ -128,7 +128,7 @@ p,h1,h2,h3,h4,h5,h6{
   
 }
 
-.div-custom{
+.div-custom, .box-custom, .border-custom{
   background: var(--primary-bg);
   box-shadow:  16px 16px 25px #c7c7c7, -16px -16px 25px #ffffff;  
   color:var(--primary-text-color);

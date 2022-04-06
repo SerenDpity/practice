@@ -45,12 +45,6 @@ function Login() {
 
     const [darkMode,setDarkMode] = useState(localStorage.getItem('darkMode'))
 
-    function toggleStyle(){
-        if(darkMode == 'true') setDarkMode('false')
-        else setDarkMode('true')
-        localStorage.setItem('darkMode', darkMode=='true'?'false':'true');
-    }
-
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {

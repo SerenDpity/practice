@@ -10,23 +10,34 @@ function LoginTab(){
     var [emailAddress,setEmailAddress] = useState('')
     var [password,setPassword] = useState('')
 
+    var [loginError,setLoginError] = useState('')
+
     function signIn(){
+        
+        setLoginError('')
 
         Axios.post('https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/faculty/login',{
             EmailAddress:emailAddress,
             Password:password
         }).then((res)=>{ 
-            localStorage.setItem("user",JSON.stringify(res.data));
-            window.location.reload();
-        }) 
+            if(res.data.error){
+                setLoginError(res.data.message)
+            }else{
+                localStorage.setItem("user",JSON.stringify(res.data));
+                window.location.reload();
+            }
+           
+        }).catch((error)=>{
+            alert(error)
+        });
         
     }
 
     return(
-        <Container fluid>
+        <Container fluid style={{padding:"0",margin:"0"}}>
             <Row className="mb-3">
                 <Col>
-                    <TextField type="email" variant="outlined" label="Email Address" fullWidth onChange={(e)=>{
+                    <TextField type="email" variant="outlined" label="Email Address" fullWidth error={loginError} onChange={(e)=>{
                         setEmailAddress(e.target.value)
                     }}/>
                 </Col>
@@ -34,7 +45,7 @@ function LoginTab(){
 
             <Row className="mb-4">
                 <Col>
-                    <TextField type="password" variant="outlined" label="Password" fullWidth onChange={(e)=>{
+                    <TextField type="password" variant="outlined" label="Password" fullWidth error={loginError} helperText={loginError} onChange={(e)=>{
                         setPassword(e.target.value)
                     }}/>
                 </Col>
@@ -49,4 +60,4 @@ function LoginTab(){
 
 }
 
-export default LoginTab();
+export default LoginTab;

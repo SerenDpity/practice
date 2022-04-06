@@ -172,7 +172,7 @@ p,h1,h2,h3,h4,h5,h6{
   border-color: var(--primary-btn-color) !important;
 }
 
-.div-custom{
+.div-custom, .box-custom{
   background: var(--primary-bg);
   box-shadow: inset 12px 12px 14px #1b1b1b,inset -12px -12px 14px #232323; 
   color:var(--primary-text-color);
