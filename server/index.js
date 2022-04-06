@@ -55,7 +55,7 @@ app.post('/faculty/register',(req,res)=>{
     const Sex = req.body.Sex;
     const EmailAddress = req.body.EmailAddress;
     const Password = req.body.Password;
-    
+
     const sqlInsert = "INSERT INTO tbl_faculty (FirstName,MiddleInitial,LastName,Birthdate,Age,Sex,EmailAddress,Password) VALUES(?,?,?,?,?,?,?,?)";
 
     db.query(sqlInsert,[FirstName,MiddleInitial,LastName,Birthdate,Age,Sex,EmailAddress,Password],(err,result)=>{
@@ -66,6 +66,37 @@ app.post('/faculty/register',(req,res)=>{
     });
 
 });
+
+const storage = multer.diskStorage({
+    destination:'./upload/images',
+    filename:(req,file,cb)=>{
+        return cb(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`)
+    }
+})
+
+const upload = multer({
+    storage:storage
+})
+
+app.post('/faculty/updateprofileimage/:EmployeeNumber',upload.single('profile'), (req,res)=>{
+
+    var path = `https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/profile/${req.file.filename}`;
+
+    var EmployeeNumber = req.params.EmployeeNumber;
+
+    var sqlUpdate = "UPDATE tbl_faculty SET ProfileImageURL=? WHERE EmployeeNumber=?";
+
+    
+
+    db.query(sqlUpdate,[path,EmployeeNumber],(err,result)=>{
+        if(err) res.send(err)
+        else res.send(path)
+    });
+
+    
+})
+
+app.use('/profile',express.static('upload/images'))
 
 app.listen(3001, () =>{
     console.log("Running on Port 3001")

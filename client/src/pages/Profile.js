@@ -13,9 +13,15 @@ import {
   Radio,
   FormControlLabel,
   Avatar,
+  Tooltip,
+  IconButton
 } from "@mui/material";
 
+import {Edit as EditIcon} from "@mui/icons-material"
+
 import {makeStyles} from '@mui/styles'
+
+import Axios from 'axios'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -53,7 +59,6 @@ function a11yProps(index) {
 function Profile() {
 
   const classes = useTabStyles();
-
   var [user,setUser] = useState(JSON.parse(localStorage.getItem('user')));
   console.log(user)
   const [value, setValue] = React.useState(0);
@@ -61,6 +66,28 @@ function Profile() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  function uploadProfileImage(){
+    var btnUploadImage = document.getElementById('btnUploadImage');
+    btnUploadImage.click()
+  }
+
+  function updateProfileImage(e){
+    var file = e.target.files[0]
+
+    var f = new FormData();
+
+    f.append("profile",file);
+
+    Axios.post(`https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/faculty/updateprofileimage/${user.EmployeeNumber}`,f).then((res)=>{ 
+      var tempUser = JSON.parse(localStorage.getItem('user'))
+      tempUser.ProfileImageURL = res.data
+      console.log(tempUser)
+      localStorage.setItem('user',JSON.stringify(tempUser))
+      setUser(JSON.parse(localStorage.getItem('user')))
+    });
+
+  }
 
   return (
     <Row
@@ -89,17 +116,30 @@ function Profile() {
               <Col>
                 <Avatar
                   alt={user.FirstName}
-                  src={user.ProfileURL}
+                  src={user.ProfileImageURL}
                   sx={{ width: 200, height: 200 }}
                   style={{ border: "solid 10px #EAEBF3", float: "left" }}
+                  id="imgProfile"
                 />
+                <input type="file" id="btnUploadImage" hidden onChange={(e)=>{updateProfileImage(e)}}/>
+
                 <Row style={{ marginTop: "110px" }}>
                   <Col>
                     <Typography
                       variant="h5"
                       style={{ fontWeight: "800" }}
-                    >{user.FirstName + " " + user.LastName}</Typography>
+                    >
+                      {user.FirstName + " " + user.LastName}
+                      <Tooltip title="Edit">
+                        <IconButton onClick={()=>{uploadProfileImage()}}>
+                          <EditIcon/>
+                        </IconButton>
+                      </Tooltip>
+                    
+                    </Typography> 
                     <Typography>{user.EmailAddress}</Typography>
+                    
+                    
                   </Col>
                 </Row>
               </Col>
