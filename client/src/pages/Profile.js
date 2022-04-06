@@ -49,7 +49,8 @@ function a11yProps(index) {
 }
 
 function Profile() {
-  //var [user,setUser] = JSON.parse(localStorage.getItem('user'));
+  var [user,setUser] = useState(JSON.parse(localStorage.getItem('user')));
+  console.log(user)
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -92,7 +93,7 @@ function Profile() {
                     <Typography
                       variant="h5"
                       style={{ fontWeight: "800" }}
-                    ></Typography>
+                    >{user.FirstName + " " + user.LastName}</Typography>
                     <Typography>Student Assistant</Typography>
                   </Col>
                 </Row>
@@ -127,58 +128,41 @@ function Profile() {
             </TabPanel>
 
             <TabPanel value={value} index={1}>
-              <Row>
-                <Col lg={2}>
-                  <Typography>Educational Background</Typography>
+              <Row className="mb-3">
+                <Col lg={3}>
+                  <Typography variant="h6">Elementary</Typography>
                 </Col>
 
-                <Col lg={5}>
-                  <Row className="box-custom">
+                <Col lg={9}>
+                  <Row className="mb-3">
                     <Col>
-                      <Typography variant="h5">STI College Malolos</Typography>
-                      <Typography>Senior Highschool</Typography>    
-                      <Typography>Humanities and Social Science</Typography>   
-                      <Typography>2018-2020</Typography>   
-                    </Col>
-                  </Row>  
-
-
-                  <Row className="box-custom">
-                    <Col>
-                      <Typography variant="h5">Bulacan State University</Typography>
-                      <Typography>College</Typography>    
-                      <Typography>Information and Communications Technology</Typography>   
-                      <Typography>2020-Present</Typography>   
+                      <Typography variant="h5">St. John the Baptist Catholic School</Typography>
+                      <Typography>2005-2018</Typography>   
                     </Col>
                   </Row>  
                 </Col>
-
-                <Col lg={5}>
-                  <Row className="box-custom">
-                    <Col>
-                      <Typography variant="h5">STI College Malolos</Typography>
-                      <Typography>Senior Highschool</Typography>    
-                      <Typography>Humanities and Social Science</Typography>   
-                      <Typography>2018-2020</Typography>   
-                    </Col>
-                  </Row>  
-
-
-                  <Row className="box-custom">
-                    <Col>
-                      <Typography variant="h5">Bulacan State University</Typography>
-                      <Typography>College</Typography>    
-                      <Typography>Information and Communications Technology</Typography>   
-                      <Typography>2020-Present</Typography>   
-                    </Col>
-                  </Row>  
-                </Col>
-
-
-
-
-
               </Row>
+
+              <Row>
+                <Col lg={3}>
+                  <Typography variant="h6">High School</Typography>
+                </Col>
+
+                <Col lg={9}>
+                  <Row className="mb-3">
+                    <Col>
+                      <Typography variant="h5">St. John the Baptist Catholic School</Typography> 
+                      <Typography>Humanities and Social Science</Typography>   
+                      <Typography>2018-2020</Typography>   
+                    </Col>
+                  </Row>  
+                </Col>
+              </Row>
+
+
+
+
+
             </TabPanel>
           </Col>
         </Row>
