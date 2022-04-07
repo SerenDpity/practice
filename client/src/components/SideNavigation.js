@@ -56,7 +56,7 @@ const SideNavigation = () => {
               <NavLink to="/services">
                 <CDBSidebarMenuItem icon="book">Services</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink to="/profile">
+              <NavLink to="/aboutus">
                 <CDBSidebarMenuItem icon="users">About Us</CDBSidebarMenuItem>
               </NavLink>
               <Button onClick={()=>{localStorage.clear();window.location.reload()}}>

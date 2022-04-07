@@ -16,7 +16,7 @@ function LoginTab(){
         
         setLoginError('')
 
-        Axios.post('https://3001-serendpity-practice-lvoltgzo0hr.ws-eu38.gitpod.io/faculty/login',{
+        Axios.post('https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/faculty/login',{
             EmailAddress:emailAddress,
             Password:password
         }).then((res)=>{ 

@@ -74,7 +74,7 @@ function RegisterTab(){
             ConfirmPasswordError.length == 0){
                 alert("posting")
             
-            Axios.post('https://3001-serendpity-practice-lvoltgzo0hr.ws-eu38.gitpod.io/faculty/register',data).then((res)=>{ 
+            Axios.post('https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/faculty/register',data).then((res)=>{ 
                 if(res.data.error){
                     
                 }else{

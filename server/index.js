@@ -65,6 +65,19 @@ app.post('/faculty/education/add',(req,res)=>{
 
 });
 
+app.get('/faculty/education/:EmployeeNumber',(req,res) =>{ 
+
+    const EmployeeNumber = req.params.EmployeeNumber;
+
+    const sqlSelect = "SELECT * FROM tbl_faculty_education WHERE EmployeeNumber=?";
+
+    db.query(sqlSelect,EmployeeNumber,(err,result)=>{
+        if(err) res.send(err);
+        else res.send(result);
+    })
+
+});
+
 app.post('/faculty/register',(req,res)=>{ 
 
     const FirstName = req.body.FirstName;
@@ -85,7 +98,7 @@ app.post('/faculty/register',(req,res)=>{
 
     });
 
-});
+}); 
 
 const storage = multer.diskStorage({
     destination:'./upload/images',
@@ -100,13 +113,11 @@ const upload = multer({
 
 app.post('/faculty/updateprofileimage/:EmployeeNumber',upload.single('profile'), (req,res)=>{
 
-    var path = `https://3001-serendpity-practice-lvoltgzo0hr.ws-eu38.gitpod.io/profile/${req.file.filename}`;
+    var path = `https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/profile/${req.file.filename}`;
 
     var EmployeeNumber = req.params.EmployeeNumber;
 
     var sqlUpdate = "UPDATE tbl_faculty SET ProfileImageURL=? WHERE EmployeeNumber=?";
-
-    
 
     db.query(sqlUpdate,[path,EmployeeNumber],(err,result)=>{
         if(err) res.send(err)

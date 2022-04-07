@@ -15,7 +15,7 @@ import { useState } from "react";
 
 import Axios from "axios"
 
-function InsertEducationModal(props) {
+function UpdateEducationModal(props) {
   
   var years = [];
   var now = new Date().getFullYear();
@@ -37,8 +37,8 @@ function InsertEducationModal(props) {
   const [YearStartError,setYearStartError] = useState()
   const [YearEndError,setYearEndError] = useState()
 
-  function addEducation(){
-
+  function updateEducation(props){
+    
     var hasError = false;
     setSchoolNameError()
     setEducationLevelError()
@@ -71,7 +71,7 @@ function InsertEducationModal(props) {
 
     if(!hasError){
 
-      Axios.post('https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/faculty/education/add',{
+      Axios.post('https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/faculty/education/update',{
             EmployeeNumber:User.EmployeeNumber,
             SchoolName:SchoolName,
             EducationLevel:EducationLevel,
@@ -98,7 +98,7 @@ function InsertEducationModal(props) {
   return (
     <Modal {...props} size="lg" centered>
       <Modal.Header closeButton>
-        <Modal.Title>Add Education</Modal.Title>
+        <Modal.Title>Edit Education</Modal.Title>
       </Modal.Header>
       <Modal.Body style={{ padding: "20px 50px 20px 50px" }}>
         <Form>
@@ -218,7 +218,7 @@ function InsertEducationModal(props) {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="contained" className="btn-custom" onClick={addEducation}>
+        <Button variant="contained" className="btn-custom" onClick={updateEducation}>
           Add
         </Button>
       </Modal.Footer>
@@ -226,4 +226,4 @@ function InsertEducationModal(props) {
   );
 }
 
-export default InsertEducationModal;
+export default UpdateEducationModal;

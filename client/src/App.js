@@ -9,6 +9,7 @@ import {Typography} from '@mui/material'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
 import NotFound from './pages/NotFound'
+import AboutUs from './pages/AboutUs'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
             <Col>
               <Routes>
                 <Route path="/" element={<Profile/>}/>
+                <Route path="/AboutUs" element={<AboutUs/>}/>
                 <Route path="/*" element={<NotFound/>}/>
               </Routes>
             </Col>

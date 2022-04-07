@@ -28,6 +28,8 @@ import {makeStyles} from '@mui/styles'
 import Axios from 'axios'
 
 import InsertEducationModal from "../components/InsertEducationModal";
+import EducationTab from "../components/EducationTab";
+import CertTab from "../components/CertTab";
 
 function Profile() {
 
@@ -53,7 +55,7 @@ function Profile() {
 
     f.append("profile",file);
 
-    Axios.post(`https://3001-serendpity-practice-lvoltgzo0hr.ws-eu38.gitpod.io/faculty/updateprofileimage/${user.EmployeeNumber}`,f).then((res)=>{ 
+    Axios.post(`https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/faculty/updateprofileimage/${user.EmployeeNumber}`,f).then((res)=>{ 
       var tempUser = JSON.parse(localStorage.getItem('user'))
       tempUser.ProfileImageURL = res.data
       console.log(tempUser)
@@ -112,8 +114,6 @@ function Profile() {
                     
                     </Typography> 
                     <Typography>{user.EmailAddress}</Typography>
-                    
-                    
                   </Col>
                 </Row>
               </Col>
@@ -121,96 +121,8 @@ function Profile() {
           </Col>
         </Row>
 
-        <Row className="justify-content-center">
-
-          <Col className="box-custom" lg={6} style={{padding:"50px"}}>
-            
-              <Row>
-                
-                <Col>
-                  <Typography variant="h5" style={{fontWeight:800}}>Education</Typography>
-                </Col>  
-
-                <Col className="text-end">
-                  <Tooltip title="Add">
-                    <IconButton onClick={()=>{setInsertEducationModalShow(true)}}>
-                      <AddIcon/>
-                    </IconButton>
-                  </Tooltip>
-                </Col>
-
-              </Row>
-
-              
-              <Row style={{padding:"20px"}}>
-                <Col>
-                  <Typography variant="h6" style={{fontWeight:700}}>Elementary</Typography>
-                  <Row style={{padding:"20px"}}>
-                    <Col lg={12} className="mb-5">
-                      <Typography variant="h6" style={{fontWeight:700}}>St. John The Baptist Catholic School</Typography>
-                      <Typography style={{fontWeight:500}}>Basic Education</Typography>
-                      <Typography>2008 - 2010</Typography>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-              
-              <Divider/>
-
-              <Row style={{padding:"20px"}}>
-                <Col>
-                  <Typography variant="h6" style={{fontWeight:700}}>High School</Typography>
-                  <Row style={{padding:"20px"}}>
-                    <Col lg={12} className="mb-5">
-                      <Typography variant="h6" style={{fontWeight:700}}>St. John The Baptist Catholic School</Typography>
-                      <Typography style={{fontWeight:500}}>Basic Education</Typography>
-                      <Typography>2008 - 2010</Typography>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-              
-              <Divider/>
-
-              <Row style={{padding:"20px"}}>
-                <Col>
-                  <Typography variant="h6" style={{fontWeight:700}}>Senior High School</Typography>
-                  <Row style={{padding:"20px"}}>
-
-                    <Col lg={12} className="mb-5">
-                      <Typography variant="h6" style={{fontWeight:700}}>St. John The Baptist Catholic School</Typography>
-                      <Typography style={{fontWeight:500}}>Basic Education</Typography>
-                      <Typography>2008 - 2010</Typography>
-                    </Col>
-                    
-                  </Row>
-                </Col>
-              </Row>
-              
-              <Divider/>
-
-              <Row style={{padding:"20px"}}>
-                <Col>
-                  <Typography variant="h6" style={{fontWeight:700}}>College</Typography>
-                  <Row style={{padding:"20px"}}>
-                    <Col lg={12} className="mb-5">
-                      <Typography variant="h6" style={{fontWeight:700}}>St. John The Baptist Catholic School</Typography>
-                      <Typography style={{fontWeight:500}}>Basic Education</Typography>
-                      <Typography>2008 - 2010</Typography>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-              
-              <InsertEducationModal
-                show={insertEducationModalShow}
-                onHide={() => setInsertEducationModalShow(false)}
-              />
-
-          </Col>
-
-
-        </Row>
+        <EducationTab></EducationTab>
+        <CertTab></CertTab>
       </Col>
     </Row>
   );
