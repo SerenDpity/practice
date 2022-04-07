@@ -14,51 +14,25 @@ import {
   FormControlLabel,
   Avatar,
   Tooltip,
-  IconButton
+  IconButton,
+  Divider
 } from "@mui/material";
 
-import {Edit as EditIcon} from "@mui/icons-material"
+import {
+  Edit as EditIcon,
+  Add as AddIcon
+} from "@mui/icons-material"
 
 import {makeStyles} from '@mui/styles'
 
 import Axios from 'axios'
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
+import InsertEducationModal from "../components/InsertEducationModal";
 
 function Profile() {
 
-  const classes = useTabStyles();
+  const [insertEducationModalShow, setInsertEducationModalShow] = useState(false);
+
   var [user,setUser] = useState(JSON.parse(localStorage.getItem('user')));
   console.log(user)
   const [value, setValue] = React.useState(0);
@@ -79,7 +53,7 @@ function Profile() {
 
     f.append("profile",file);
 
-    Axios.post(`https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/faculty/updateprofileimage/${user.EmployeeNumber}`,f).then((res)=>{ 
+    Axios.post(`https://3001-serendpity-practice-lvoltgzo0hr.ws-eu38.gitpod.io/faculty/updateprofileimage/${user.EmployeeNumber}`,f).then((res)=>{ 
       var tempUser = JSON.parse(localStorage.getItem('user'))
       tempUser.ProfileImageURL = res.data
       console.log(tempUser)
@@ -147,73 +121,95 @@ function Profile() {
           </Col>
         </Row>
 
-        <Row className="box-custom">
-          <Col>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-              <Tabs
-                classes={{ root: classes.root, scroller: classes.scroller }}
-                value={value}
-                onChange={handleChange}
-                centered
-                variant="scrollable"
-                scrollButtons="auto"
-              >
-                <Tab label="Personal Information" {...a11yProps(0)} />
-                <Tab label="Educational Background" {...a11yProps(1)} />
-                <Tab label="Work Experience" {...a11yProps(2)} />
-                <Tab label="Certificate" {...a11yProps(3)} />
-              </Tabs>
-            </Box>
+        <Row className="justify-content-center">
 
-            <TabPanel value={value} index={0}>
+          <Col className="box-custom" lg={6} style={{padding:"50px"}}>
+            
               <Row>
+                
                 <Col>
-                  <Typography>Personal Information</Typography>
+                  <Typography variant="h5" style={{fontWeight:800}}>Education</Typography>
+                </Col>  
+
+                <Col className="text-end">
+                  <Tooltip title="Add">
+                    <IconButton onClick={()=>{setInsertEducationModalShow(true)}}>
+                      <AddIcon/>
+                    </IconButton>
+                  </Tooltip>
                 </Col>
 
-                <Col></Col>
               </Row>
-            </TabPanel>
 
-            <TabPanel value={value} index={1}>
-              <Row className="mb-3">
-                <Col lg={3}>
-                  <Typography variant="h6">Elementary</Typography>
-                </Col>
-
-                <Col lg={9}>
-                  <Row className="mb-3">
-                    <Col>
-                      <Typography variant="h5">St. John the Baptist Catholic School</Typography>
-                      <Typography>2005-2018</Typography>   
+              
+              <Row style={{padding:"20px"}}>
+                <Col>
+                  <Typography variant="h6" style={{fontWeight:700}}>Elementary</Typography>
+                  <Row style={{padding:"20px"}}>
+                    <Col lg={12} className="mb-5">
+                      <Typography variant="h6" style={{fontWeight:700}}>St. John The Baptist Catholic School</Typography>
+                      <Typography style={{fontWeight:500}}>Basic Education</Typography>
+                      <Typography>2008 - 2010</Typography>
                     </Col>
-                  </Row>  
+                  </Row>
                 </Col>
               </Row>
+              
+              <Divider/>
 
-
-              <Row>
-                <Col lg={3}>
-                  <Typography variant="h6">High School</Typography>
-                </Col>
-
-                <Col lg={9}>
-                  <Row className="mb-3">
-                    <Col>
-                      <Typography variant="h5">St. John the Baptist Catholic School</Typography> 
-                      <Typography>Humanities and Social Science</Typography>   
-                      <Typography>2018-2020</Typography>   
+              <Row style={{padding:"20px"}}>
+                <Col>
+                  <Typography variant="h6" style={{fontWeight:700}}>High School</Typography>
+                  <Row style={{padding:"20px"}}>
+                    <Col lg={12} className="mb-5">
+                      <Typography variant="h6" style={{fontWeight:700}}>St. John The Baptist Catholic School</Typography>
+                      <Typography style={{fontWeight:500}}>Basic Education</Typography>
+                      <Typography>2008 - 2010</Typography>
                     </Col>
-                  </Row>  
+                  </Row>
                 </Col>
               </Row>
+              
+              <Divider/>
 
+              <Row style={{padding:"20px"}}>
+                <Col>
+                  <Typography variant="h6" style={{fontWeight:700}}>Senior High School</Typography>
+                  <Row style={{padding:"20px"}}>
 
+                    <Col lg={12} className="mb-5">
+                      <Typography variant="h6" style={{fontWeight:700}}>St. John The Baptist Catholic School</Typography>
+                      <Typography style={{fontWeight:500}}>Basic Education</Typography>
+                      <Typography>2008 - 2010</Typography>
+                    </Col>
+                    
+                  </Row>
+                </Col>
+              </Row>
+              
+              <Divider/>
 
+              <Row style={{padding:"20px"}}>
+                <Col>
+                  <Typography variant="h6" style={{fontWeight:700}}>College</Typography>
+                  <Row style={{padding:"20px"}}>
+                    <Col lg={12} className="mb-5">
+                      <Typography variant="h6" style={{fontWeight:700}}>St. John The Baptist Catholic School</Typography>
+                      <Typography style={{fontWeight:500}}>Basic Education</Typography>
+                      <Typography>2008 - 2010</Typography>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+              
+              <InsertEducationModal
+                show={insertEducationModalShow}
+                onHide={() => setInsertEducationModalShow(false)}
+              />
 
-
-            </TabPanel>
           </Col>
+
+
         </Row>
       </Col>
     </Row>

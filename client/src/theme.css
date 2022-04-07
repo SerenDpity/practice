@@ -146,3 +146,11 @@ input:-webkit-autofill:active
   border-bottom: none !important;
 }
 
+.btn-custom{
+  border-radius: 50px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-right: 50px !important;
+  padding-left: 50px !important;
+}
+

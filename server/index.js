@@ -45,6 +45,26 @@ app.post('/faculty/login',(req,res)=>{
 
 });
 
+app.post('/faculty/education/add',(req,res)=>{
+
+    const EmployeeNumber = req.body.EmployeeNumber;
+    const EducationLevel = req.body.EducationLevel;
+    const Course = req.body.Course;
+    const SchoolName = req.body.SchoolName;
+    const YearStart = req.body.YearStart;
+    const YearEnd = req.body.YearEnd;
+
+    const sqlInsert = "INSERT INTO tbl_faculty_education (EmployeeNumber,EducationLevel,Course,SchoolName,YearStart,YearEnd) VALUES (?,?,?,?,?,?)"
+
+    db.query(sqlInsert,[EmployeeNumber,EducationLevel,Course,SchoolName,YearStart,YearEnd],(err,result)=>{
+        
+        if(err) res.send(err);
+        else res.send(result);
+
+    });
+
+});
+
 app.post('/faculty/register',(req,res)=>{ 
 
     const FirstName = req.body.FirstName;
@@ -80,7 +100,7 @@ const upload = multer({
 
 app.post('/faculty/updateprofileimage/:EmployeeNumber',upload.single('profile'), (req,res)=>{
 
-    var path = `https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/profile/${req.file.filename}`;
+    var path = `https://3001-serendpity-practice-lvoltgzo0hr.ws-eu38.gitpod.io/profile/${req.file.filename}`;
 
     var EmployeeNumber = req.params.EmployeeNumber;
 

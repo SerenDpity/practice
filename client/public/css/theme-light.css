@@ -133,3 +133,7 @@ p,h1,h2,h3,h4,h5,h6{
   box-shadow:  16px 16px 25px #c7c7c7, -16px -16px 25px #ffffff;  
   color:var(--primary-text-color);
 }
+
+.MuiSvgIcon-root{
+  color:var(--primary-text-color);
+}
