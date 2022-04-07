@@ -20,7 +20,7 @@ function InsertEducationModal(props) {
   var years = [];
   var now = new Date().getFullYear();
   for(var i = now+10; i > 1950;i--){
-    years.push(i);
+    years.push(i.toString());
   }
 
   const [User,setUser] = useState(JSON.parse(localStorage.getItem('user')))

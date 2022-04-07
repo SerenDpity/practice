@@ -14,7 +14,8 @@ import {
 
 import {
   Edit as EditIcon,
-  Add as AddIcon
+  Add as AddIcon,
+  Delete as DeleteIcon
 } from "@mui/icons-material"
 
 import * as React from 'react';
@@ -36,6 +37,8 @@ function EducationTab(props) {
 
   const [User,setUser] = useState(JSON.parse(localStorage.getItem('user')))
   const [insertEducationModalShow, setInsertEducationModalShow] = useState(false);
+  const [updateEducationModalShow,setUpdateEducationModalShow] = useState(false);
+  const [currentRow,setCurrentRow] = useState();
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -52,6 +55,22 @@ function EducationTab(props) {
       setRows(res.data);
     });
   });
+
+  function deleteEducation(){
+    
+    Axios.delete(`https://3001-serendpity-practice-lvoltgzo0hr.ws-us38.gitpod.io/faculty/education/delete/${currentRow.ID}/${User.EmployeeNumber}`).then((res)=>{ 
+
+        if(res.data.error){
+
+        }else{
+          
+        }
+           
+    }).catch((error)=>{
+        //alert(error)
+    });
+
+  }
 
   return (
     <Row className="justify-content-center">
@@ -108,7 +127,27 @@ function EducationTab(props) {
                           if(i != count){
                             return( 
                               <Col lg={12} className="mb-5">
-                                <Typography variant="h6" style={{ fontWeight: 700 }}>
+                                <Tooltip title="Edit">
+                                  <IconButton
+                                    onClick={() => {
+                                      setCurrentRow(val)
+                                      setUpdateEducationModalShow(true);
+                                    }}
+                                  >
+                                    <EditIcon />
+                                  </IconButton>
+                                </Tooltip>
+                                <Tooltip title="Delete">
+                                  <IconButton
+                                    onClick={() => {
+                                      setCurrentRow(val);
+                                      deleteEducation();
+                                    }}
+                                  >
+                                    <DeleteIcon />
+                                  </IconButton>
+                                </Tooltip>
+                                <Typography variant="h6" style={{ fontWeight: 700}}>
                                   {val.SchoolName}
                                 </Typography>
                                 <Typography style={{ fontWeight: 500 }}>
@@ -120,6 +159,16 @@ function EducationTab(props) {
                           }else{
                             return( 
                               <Col lg={12}>
+                                <Tooltip title="Edit">
+                                  <IconButton
+                                    onClick={() => {
+                                      setCurrentRow(val)
+                                      setUpdateEducationModalShow(true);
+                                    }}
+                                  >
+                                    <EditIcon />
+                                  </IconButton>
+                                </Tooltip>
                                 <Typography variant="h6" style={{ fontWeight: 700 }}>
                                   {val.SchoolName}
                                 </Typography>
@@ -159,6 +208,16 @@ function EducationTab(props) {
                           if(i != count){
                             return( 
                               <Col lg={12} className="mb-5">
+                                <Tooltip title="Edit">
+                                  <IconButton
+                                    onClick={() => {
+                                      setCurrentRow(val)
+                                      setUpdateEducationModalShow(true);
+                                    }}
+                                  >
+                                    <EditIcon />
+                                  </IconButton>
+                                </Tooltip>
                                 <Typography variant="h6" style={{ fontWeight: 700 }}>
                                   {val.SchoolName}
                                 </Typography>
@@ -171,6 +230,16 @@ function EducationTab(props) {
                           }else{
                             return( 
                               <Col lg={12}>
+                                <Tooltip title="Edit">
+                                  <IconButton
+                                    onClick={() => {
+                                      setCurrentRow(val)
+                                      setUpdateEducationModalShow(true);
+                                    }}
+                                  >
+                                    <EditIcon />
+                                  </IconButton>
+                                </Tooltip>
                                 <Typography variant="h6" style={{ fontWeight: 700 }}>
                                   {val.SchoolName}
                                 </Typography>
@@ -210,6 +279,16 @@ function EducationTab(props) {
                           if(i != count){
                             return( 
                               <Col lg={12} className="mb-5">
+                                <Tooltip title="Edit">
+                                  <IconButton
+                                    onClick={() => {
+                                      setCurrentRow(val)
+                                      setUpdateEducationModalShow(true);
+                                    }}
+                                  >
+                                    <EditIcon />
+                                  </IconButton>
+                                </Tooltip>
                                 <Typography variant="h6" style={{ fontWeight: 700 }}>
                                   {val.SchoolName}
                                 </Typography>
@@ -222,6 +301,16 @@ function EducationTab(props) {
                           }else{
                             return( 
                               <Col lg={12}>
+                                <Tooltip title="Edit">
+                                  <IconButton
+                                    onClick={() => {
+                                      setCurrentRow(val)
+                                      setUpdateEducationModalShow(true);
+                                    }}
+                                  >
+                                    <EditIcon />
+                                  </IconButton>
+                                </Tooltip>
                                 <Typography variant="h6" style={{ fontWeight: 700 }}>
                                   {val.SchoolName}
                                 </Typography>
@@ -261,6 +350,16 @@ function EducationTab(props) {
                           if(i != count){
                             return( 
                               <Col lg={12} className="mb-5">
+                                <Tooltip title="Edit">
+                                  <IconButton
+                                    onClick={() => {
+                                      setCurrentRow(val)
+                                      setUpdateEducationModalShow(true);
+                                    }}
+                                  >
+                                    <EditIcon />
+                                  </IconButton>
+                                </Tooltip>
                                 <Typography variant="h6" style={{ fontWeight: 700 }}>
                                   {val.SchoolName}
                                 </Typography>
@@ -273,6 +372,16 @@ function EducationTab(props) {
                           }else{
                             return( 
                               <Col lg={12}>
+                                <Tooltip title="Edit">
+                                  <IconButton
+                                    onClick={() => {
+                                      setCurrentRow(val)
+                                      setUpdateEducationModalShow(true);
+                                    }}
+                                  >
+                                    <EditIcon />
+                                  </IconButton>
+                                </Tooltip>
                                 <Typography variant="h6" style={{ fontWeight: 700 }}>
                                   {val.SchoolName}
                                 </Typography>
@@ -297,7 +406,8 @@ function EducationTab(props) {
 
               <UpdateEducationModal
                 show={updateEducationModalShow}
-                onHide={() => setInsertEducationModalShow(false)}
+                onHide={() => setUpdateEducationModalShow(false)}
+                row={currentRow}
               />
 
               

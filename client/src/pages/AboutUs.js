@@ -9,6 +9,7 @@ function AboutUs() {
       <Col>
         <Row className="mb-5">
           <Col className="animate__animated animate__fadeIn">
+              <img src="img/BSUColor.png" className="img-custom" style={{width:"250px"}}></img>
               <Typography variant="h3" className="text-muted">Team Two</Typography>
               <Typography variant="h5" className="text-muted">BulSu Main</Typography>
           </Col>
@@ -29,7 +30,7 @@ function AboutUs() {
                 <Typography style={{fontSize:"12px"}}>FRONT-END DEVELOPER</Typography>
               </Col>
               <Col lg={12} className="mt-5">
-                <Typography>A team consisting of Third Year Students from Bulacan State University - Main. Participating in IRCITE 2022 Hackathon Competition not just for the school, also for the Glory of God. </Typography>
+                <Typography>A team consisting of Third Year Students from Bulacan State University - Main. Participating in IRCITE 2022 Hackathon Competition not just for the school, but for the Glory of God. </Typography>
               </Col>
             </Row>
           </Col>

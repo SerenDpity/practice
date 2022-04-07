@@ -65,6 +65,44 @@ app.post('/faculty/education/add',(req,res)=>{
 
 });
 
+app.put('/faculty/education/update',(req,res)=>{
+
+    const ID = req.body.ID;
+    const EmployeeNumber = req.body.EmployeeNumber;
+    const EducationLevel = req.body.EducationLevel;
+    const Course = req.body.Course;
+    const SchoolName = req.body.SchoolName;
+    const YearStart = req.body.YearStart;
+    const YearEnd = req.body.YearEnd;
+
+    const sqlUpdate = "UPDATE tbl_faculty_education SET EducationLevel=?, Course=?, SchoolName=?, YearStart=?, YearEnd=? WHERE ID=? AND EmployeeNumber=?"
+
+    db.query(sqlUpdate,[EducationLevel,Course,SchoolName,YearStart,YearEnd,ID,EmployeeNumber],(err,result)=>{
+        
+        if(err) res.send(err);
+        else res.send(result);
+
+    });
+
+});
+
+app.delete('/faculty/education/delete/:ID/:EmployeeNumber',(req,res)=>{
+
+    const ID = req.params.ID;
+    const EmployeeNumber = req.params.EmployeeNumber; 
+
+    console.log(ID)
+
+    const sqlUpdate = "DELETE FROM tbl_faculty_education WHERE ID=? AND EmployeeNumber=?"
+
+    db.query(sqlUpdate,[ID,EmployeeNumber],(err,result)=>{
+        
+        if(err) res.send(err);
+        else res.send(result);
+    });
+
+});
+
 app.get('/faculty/education/:EmployeeNumber',(req,res) =>{ 
 
     const EmployeeNumber = req.params.EmployeeNumber;
